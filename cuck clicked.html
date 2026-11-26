@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Cuck Clicker</title>
+    <link rel="stylesheet" href="cuck.css">
+</head>
+
+
+<body>
+
+<div id="shadowContainer">
+
+
+
+<div class="thirds">
+
+
+
+<div class="leftThird">
+
+    <img id="whatMotivation">
+
+</div>
+
+
+
+<div class="centerThird">
+
+<h1 id="count" style="display: block;">COOKIES:</h1>
+
+<button class="Cookie" onclick= "addCookies()">THE COOKIE</button>
+
+<button id="upgradeButton" onclick="upgrade()">UPGRADE! (cost:15)</button>
+
+<img id="trophyPic">
+
+<div class="upgradeBox">
+    <button id="buyMotivationUpgrade" class="upgrade" onclick="buyMotivation()">Purchase Motivation <br> (COST: 500)</button>
+    <button id="buyCuckUpgrade" class="upgrade" onclick="buyCuck()">Purchase "Kings throne" (COST: 1000)</button>
+    <button id="buyServantUpgrade" class="upgrade" onclick="buyServant()">Purchase indentured servant (COST: 1000)</button>
+    <button id="buyASMRUpgrade" class="upgrade" onclick="buyASMR()">Purchase ASMR (COST:2000)</button>
+    <button id="buyGambleUpgrade" class="upgrade" onclick="buyGamble()">Purchase gamble (COST:2000)</button>
+    <button id="buyPotionUpgrade" class="upgrade" onclick="buyPotion()">Purchase "strength potion" (COST:5000)</button>
+</div>
+
+<button class="winButton" onclick="win()"> 100,000 COOKIES - WIN GAME!!!!!!! :)</button>
+</div>
+
+
+
+<div class="thirdThird">
+
+    <img id="dudePic">
+
+    <div class="quadPositioner"> <div class="quadGroup">
+        
+        <div id="quad1">   <img id="throne">     </div>
+
+        <div id="quad2">
+              <audio id="audioEl" src="F4A Making Cookies With Your Caregiver ASMR Roleplay [Baking] [Age Regression] [Little x CG].mp3"></audio>
+              <img class="maPic" src="notWFaps\asmrPic.jpg">
+              <div class="toggleBox"> <button class="toggleBtn" onclick="toggleAudio()">toggle ASMR</button>  <div class="toggleShade"></div> </div>
+        </div>
+       
+        <div id="quad3">
+            <button class="gambleButton" onclick="guess()">Gamble like the little bitch you are (500)</button>
+            <img id="mineImage" src="actualImgs\gambleImage.jpg">
+        </div>
+
+        <div id="quad4"> <div id="shadowDiv"> </div> <img src="actualImgs\alcImage.jpg" id="alcImageId">    </div>
+
+    </div> </div>
+
+</div>
+
+
+
+
+
+</div> </div>
+
+
+
+
+
+
+
+
+<script>
+
+    let cookies = 0;
+
+    let cookieClick = 1;
+
+    let upgradeCost = 15;
+
+    const tPic = document.getElementById("trophyPic");
+    
+    const whip = document.createElement("img");
+
+    let slaveInterval = null;
+
+    const cuckText = document.createElement("p");
+
+    const cuckVar = document.getElementById("throne");
+
+    const cuckFeature = document.createElement("button");
+
+    const asmrVar = document.getElementById("audioEl"); 
+    let isPlaying = false;
+
+    const cuckBox = document.getElementById("quad1");
+
+    document.getElementById("alcImageId").addEventListener("click", drinkFunction);
+    document.getElementById('shadowDiv').style.opacity = "0";
+
+    let isDrunk = false;
+
+    let buyCuckPurchased = false;
+    let buyMotivationPurchased = false;
+    let buyServantPurchased = false;
+    let buyASMRPurchased = false;
+    let buyGamblePurchased = false;
+    let buyPotionPurchased = false;
+
+
+    if (window.innerHeight > 912) {
+        const filler = document.createElement("h1");
+        filler.innerHTML = "Your aspect ratio is different to mine. Fatass.";
+        document.body.appendChild(filler);
+        filler.classList.add("fillerBox");
+        alert("screen big");
+        document.querySelector("html").style.border = "3px solid black";
+   }
+
+
+
+
+
+
+function addCookies() 
+{
+    cookies = cookies + cookieClick;
+    document.getElementById ("count").innerHTML = "COOKIES:" + cookies;
+}
+
+function upgrade() {
+    if (cookies >= upgradeCost)
+    {cookieClick = Math.round(cookieClick * 1.2 +1);
+    cookies = cookies - upgradeCost;
+    upgradeCost = Math.round(upgradeCost * 1.3);
+    upgradeButton.innerHTML = `UPGRADE! (cost:${upgradeCost})`;
+    document.getElementById ("count").innerHTML = "COOKIES:" + cookies;
+    }
+}
+
+
+
+/*UPGRADES*/
+
+function buyCuck(){
+
+    if (cookies >= 1000){
+    if (buyCuckPurchased === false){
+
+    cookies = cookies - 1000
+    document.getElementById ("count").innerHTML = "COOKIES:" + cookies;
+
+
+
+    cuckVar.setAttribute("src", "actualImgs/cuckchair.jpg");
+    cuckVar.classList.add("cuckQuad");
+    cuckBox.appendChild(cuckVar);  
+
+    cuckFeature.innerHTML = "CUCK";
+    cuckFeature.addEventListener("click", cuck);
+    cuckBox.appendChild(cuckFeature);
+    cuckFeature.title = "rest your cuck ass"
+    cuckFeature.classList.add("cuckButton");
+
+    cuckText.classList.add("cuckTextStyle");
+    cuckBox.appendChild(cuckText);
+    cuckText.innerHTML = "Wife's boyfriend ready"
+
+    document.getElementById("buyCuckUpgrade").classList.add("greyedOut");
+    document.getElementById("quad1").style.visibility = "visible";
+    buyCuckPurchased = true;
+
+}}}
+
+function buyMotivation(){
+
+    if (cookies >= 500){
+    if (buyMotivationPurchased === false){
+    cookies = cookies - 500;
+    document.getElementById ("count").innerHTML = "COOKIES:" + cookies;
+
+        const qGirl = document.createElement("button");
+        qGirl.innerHTML = "No mama i like girls!";
+        qGirl.addEventListener("click", qGirlImg)
+        function qGirlImg() {whatMotivation.src = "notWFaps/AJOKEIPROMISE.webp"; qMale.remove(); qGirl.remove();}
+        document.querySelector(".thirds").appendChild(qGirl)
+        qGirl.classList.add("qGirl")
+
+        const qMale = document.createElement("button");
+        qMale.innerHTML = "Looks female enough";
+        qMale.addEventListener("click", qMaleImg)
+        function qMaleImg() {whatMotivation.src = "notWFaps/DONOTOPEN.webp"; qMale.remove(); qGirl.remove();}
+        document.querySelector(".thirds").appendChild(qMale)
+        qMale.classList.add("qMale")
+
+
+    document.getElementById("buyMotivationUpgrade").classList.add("greyedOut")
+    buyMotivationPurchased = true;
+
+}}}
+
+function buyServant(){
+    if (cookies >= 1000){
+    if (buyServantPurchased === false){
+    cookies = cookies - 1000
+    document.getElementById ("count").innerHTML = "COOKIES:" + cookies;
+    backToWork();
+
+    document.getElementById("buyServantUpgrade").classList.add("greyedOut")
+    buyServantPurchased = true;
+
+}}}
+
+function buyASMR(){
+
+    if (cookies >= 2000){
+    if (buyASMRPurchased === false){
+
+    cookies = cookies - 2000
+    document.getElementById ("count").innerHTML = "COOKIES:" + cookies;
+
+    document.getElementById("buyASMRUpgrade").classList.add("greyedOut");
+    document.getElementById("quad2").style.visibility = "visible";
+    buyASMRPurchased = true;
+
+}}}
+
+function buyGamble(){
+
+    if (cookies >= 2000){
+    if (buyGamblePurchased === false){
+
+    cookies = cookies - 1;
+    document.getElementById ("count").innerHTML = "COOKIES:" + cookies;
+
+    document.getElementById("buyGambleUpgrade").classList.add("greyedOut");
+    document.getElementById("quad3").style.visibility = "visible";
+    buyGamblePurchased = true;
+
+}}}
+
+function buyPotion(){
+
+    if (cookies >= 5000){
+    if (buyPotionPurchased === false){
+
+    cookies = cookies - 5000;
+    document.getElementById ("count").innerHTML = "COOKIES:" + cookies;
+
+    document.getElementById("buyPotionUpgrade").classList.add("greyedOut");
+    document.getElementById("quad4").style.visibility = "visible";
+    buyPotionPurchased = true;
+}}}
+
+/*END UPGRADES*/
+
+
+
+
+function cuck() {
+        setTimeout(()=> {
+        cookies = cookies + (cookieClick * 30) 
+        document.getElementById ("count").innerHTML = "COOKIES:" + cookies;
+        cuckText.innerHTML = "Wife's boyfriend ready"
+        cuckBox.appendChild(cuckFeature);
+    }  ,5000)
+
+        cuckText.innerHTML = "Cucking . . .";
+        cuckFeature.remove();
+    }
+
+
+/*SLAVE STUFF*/
+function backToWork() {
+    if (slaveInterval === null) {
+        slaveInterval = setInterval(addCookies, 250);
+    }
+    document.getElementById("dudePic").src = "actualImgs/oldServant.jpg";
+    document.getElementById("dudePic").classList.add("workingDudeImg");
+    setTimeout ( tiredOfWork, sleepTime())
+
+
+    whip.remove();
+    
+}
+
+function tiredOfWork() {
+    clearInterval(slaveInterval);
+    slaveInterval = null;
+
+    document.getElementById("dudePic").src = "actualImgs/sleepServant.jpg"
+
+    whip.addEventListener("click", backToWork);
+    whip.setAttribute("src", "actualImgs/images (1).jpg");
+    whip.setAttribute("title", "kindly remind them");
+    whip.classList.add("whipImg");
+    document.body.appendChild(whip)
+}
+
+function sleepTime() {
+    return Math.floor(Math.random() * (25000 - 10000 + 1)) + 7000;
+}
+/*END SLAVE STUFF*/
+
+function toggleAudio() {
+
+    if(isPlaying){
+			asmrVar.pause();
+            document.querySelector(".toggleBtn").style.left = "0px";
+            document.querySelector(".toggleBox").style.backgroundColor = "rgb(247, 32, 32)";
+    }
+    else{
+        asmrVar.play();
+        document.querySelector(".toggleBtn").style.left = "157px";
+        document.querySelector(".toggleBox").style.backgroundColor = "rgb(33, 199, 5)";
+    }
+
+    isPlaying=!isPlaying;
+}
+
+function guess() {
+
+    if (cookies >= 500){
+
+        cookies = cookies - 500;
+        document.getElementById ("count").innerHTML = "COOKIES:" + cookies;
+
+        if (67 === Math.floor(Math.random() * 100)) {
+        
+            alert("Holy shit you actually won god damn"); cookies = cookies + cookieClick * 5000;
+            document.getElementById ("count").innerHTML = "COOKIES:" + cookies;}
+
+} else {
+    alert("Out of cookies. Consider a job, a loan or keys")
+}
+
+}
+
+function drinkFunction() {
+    if(isDrunk === false){
+        setTimeout(()=>{
+            document.getElementById('shadowDiv').style.opacity = "0";
+            cookieClick = Math.floor( cookieClick/5);
+            isDrunk = false;
+        },5000);
+
+        document.getElementById('shadowDiv').style.opacity = "1";
+        cookieClick = cookieClick * 5;
+        isDrunk = true;
+    }
+}
+
+function win() {
+
+        if (cookies >=100000) {
+            if (buyCuckPurchased && buyMotivationPurchased && buyServantPurchased && buyASMRPurchased && buyGamblePurchased && buyPotionPurchased) {
+            cookies = cookies - 100000;
+            document.getElementById ("count").innerHTML = "COOKIES:" + cookies;
+            alert ('you win yay!!!!!!!!! Now get a job.');
+            tPic.setAttribute("src", "actualImgs/trophy.png" );
+            document.querySelector(".winButton").remove();
+            document.querySelector(".upgradeBox").remove();
+        }   
+        else { alert (`Hey dickhead maybe buy all my upgrades before finishing the damn game`);}
+    }  else {alert("you're too broke to win bitch ass")} 
+}
+
+</script>
+
+</body>
+
+
+</html>
